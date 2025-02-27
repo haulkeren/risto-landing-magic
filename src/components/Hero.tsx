@@ -22,7 +22,7 @@ const Hero = () => {
         width: 1248,
         height: 765,
       }}
-      className="min-h-screen bg-gradient-to-b from-primary/10 to-white"
+      className="min-h-screen bg-gradient-to-b from-primary/10 to-white pt-16"
     />
   );
 };
