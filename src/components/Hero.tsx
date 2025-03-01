@@ -1,6 +1,8 @@
-
+import { useState, useEffect } from "react";
 import { HeroWithMockup } from "@/components/blocks/hero-with-mockup";
 import { Play } from "lucide-react";
+import { Skeleton } from "@/components/Skeleton"; // Pastikan path benar
+import { Parallax } from "react-scroll-parallax";
 
 const Hero = () => {
   return (
@@ -14,11 +16,11 @@ const Hero = () => {
       secondaryCta={{
         text: "Tonton Demo",
         href: "#",
-        icon: <Play className="mr-2 h-4 w-4" />,
       }}
+      // Hero.tsx
       mockupImage={{
-        src: "https://placehold.co/1248x765/e2e8f0/64748b?text=Risto+POS+Dashboard",
-        alt: "Risto POS Dashboard",
+        src: "/assets/images/pos.png",
+        alt: "Dashboard Risto POS",
         width: 1248,
         height: 765,
       }}

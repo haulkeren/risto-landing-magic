@@ -111,20 +111,12 @@ export function HeroWithMockup({
 
           {/* Mockup */}
           <div className="relative w-full pt-12 px-4 sm:px-6 lg:px-8">
-            <Mockup
-              className={cn(
-                "animate-appear opacity-0 [animation-delay:700ms]",
-                "shadow-[0_0_50px_-12px_rgba(0,0,0,0.3)] dark:shadow-[0_0_50px_-12px_rgba(255,255,255,0.1)]",
-                "border-primary/10 dark:border-primary/5"
-              )}
-            >
               <img
                 {...mockupImage}
-                className="w-full h-auto"
+                className="w-full h-full object-contain md:object-cover"
                 loading="lazy"
                 decoding="async"
               />
-            </Mockup>
           </div>
         </div>
       </div>

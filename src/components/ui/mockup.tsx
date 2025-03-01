@@ -1,4 +1,3 @@
-
 import React from "react";
 import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
@@ -20,19 +19,31 @@ const mockupVariants = cva(
 
 export interface MockupProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof mockupVariants> {}
+    VariantProps<typeof mockupVariants> {
+  width?: string; // Tambahkan prop untuk lebar
+  height?: string; // Tambahkan prop untuk tinggi
+}
 
 const Mockup = React.forwardRef<HTMLDivElement, MockupProps>(
-  ({ className, type, ...props }, ref) => (
+  ({ className, type, width, height, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn(mockupVariants({ type, className }))}
+      className={cn(
+        mockupVariants({ type, className }),
+        width && `w-[${width}]`, // Gunakan width jika disediakan
+        height && `h-[${height}]`, // Gunakan height jika disediakan
+      )}
+      style={{
+        width: width ? `var(--mockup-width, ${width})` : undefined,
+        height: height ? `var(--mockup-height, ${height})` : undefined,
+      }}
       {...props}
     />
   ),
 );
 Mockup.displayName = "Mockup";
 
+// Komponen MockupFrame tetap sama
 const frameVariants = cva(
   "bg-accent/5 flex relative z-10 overflow-hidden rounded-2xl",
   {
