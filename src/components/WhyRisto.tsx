@@ -112,6 +112,12 @@ const WhyRisto = () => {
     visible: { opacity: 1, y: 0 }
   };
 
+
+  const handleConsultationClick = () => {
+    window.location.href = "https://api.whatsapp.com/send/?phone=6285246911805&text&type=phone_number&app_absent=0";
+  };
+
+
   return (
     <section className="py-24 bg-gradient-to-b from-white to-gray-100">
       <div className="container mx-auto px-4 max-w-7xl">
@@ -207,15 +213,8 @@ const WhyRisto = () => {
             <motion.button 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={handleConsultationClick}
               className="px-8 py-4 bg-white text-primary hover:bg-gray-100 rounded-full shadow-lg transition-all duration-300 font-medium flex items-center justify-center gap-2"
-            >
-              Lihat Demo Fitur
-              <LayoutDashboard className="w-5 h-5" />
-            </motion.button>
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border border-white/30 rounded-full shadow-lg transition-all duration-300 font-medium flex items-center justify-center gap-2"
             >
               Jadwalkan Konsultasi
               <ArrowRight className="w-5 h-5" />

@@ -16,12 +16,13 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import FeatureModal from "./FeatureModal"; // Import the modal component
 
 // Organize features into categories for better information architecture
 const featureCategories = [
   {
     id: "operational",
-    title: "Operasional Utama",
+    title: "Operasional",
     icon: Coffee,
     features: [
       {
@@ -52,7 +53,7 @@ const featureCategories = [
   },
   {
     id: "management",
-    title: "Manajemen & Analisis",
+    title: "Manajemen",
     icon: BarChart,
     features: [
       {
@@ -117,6 +118,9 @@ const featureCategories = [
 const Features = () => {
   // State to track the active category
   const [activeCategory, setActiveCategory] = useState("operational");
+  
+  // State to control modal visibility
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
   // Get the features for the active category
   const activeCategoryData = featureCategories.find(cat => cat.id === activeCategory);
@@ -270,12 +274,20 @@ const Features = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="px-5 md:px-8 py-3 md:py-4 bg-white border border-gray-200 hover:border-primary/30 hover:bg-primary/5 text-gray-900 rounded-full shadow-sm transition-all duration-300 font-medium flex items-center gap-2 text-sm md:text-base"
+            onClick={() => setIsModalOpen(true)}
           >
             Lihat Semua Fitur
             <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
           </motion.button>
         </motion.div>
       </div>
+
+      {/* Feature Modal */}
+      <FeatureModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        featureCategories={featureCategories} 
+      />
     </section>
   );
 };

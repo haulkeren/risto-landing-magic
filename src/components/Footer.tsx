@@ -1,107 +1,170 @@
-
 import { Button } from "@/components/ui/button";
-import { Phone } from "lucide-react";
+import { Mail, Pin, Phone, PiIcon } from "lucide-react";
+import { Instagram, Linkedin, Facebook } from "lucide-react";
+import { Link } from "react-router-dom";
+
+const DATA_FOOTER = {
+  usefull_link: [
+    {
+      name: "Layanan",
+      href: "/services",
+    },
+    {
+      name: "Workshop",
+      href: "/workshop",
+    },
+    {
+      name: "AI PDF",
+      href: "#",
+    },
+    {
+      name: "Artikel",
+      href: "/articles",
+    },
+  ],
+  our_service: [
+    {
+      name: "POS Solutions",
+      href: "/services/aplikasi-kasir-pos-solutions",
+    },
+    {
+      name: "Risto POS",
+      href: "/services/kasir-restoran-cafe-risto-pos",
+    },
+  ],
+};
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-16">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="font-poppins font-bold text-3xl mb-4">
-            Siap Transformasi Bisnis Anda?
-          </h2>
-          <Button
-            size="lg"
-            className="bg-green-500 hover:bg-green-600 text-white px-8 py-6 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105"
+    <footer className="relative z-10 mt-10" style={{ backgroundColor: "rgba(95, 39, 205, 0.1)" }}>
+      <div className="px-10 py-28">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-4">
+          <div className="flex flex-col gap-8">
+            <div className="flex items-center gap-3">
+              {/* Replace with your logo */}
+              <img src="https://technemasolutions.co.id/_next/static/media/logo.47b2b435.svg" alt="technema logo" className="w-10 h-10" />
+              <p className="text-2xl font-semibold">
+                Technema Solutions
+              </p>
+            </div>
+            <p className="font-light text-gray-600">
+              We provide Information Technology Products for your business and
+              business development.
+            </p>
+            <div className="flex gap-2">
+              <a
+                href="https://www.instagram.com/technemasolutions.id/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-gray-300 transition-all hover:border-transparent hover:bg-purple-600 hover:text-white"
+              >
+                <Instagram size={20} />
+              </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=61561333662838&mibextid=LQQJ4d"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-gray-300 transition-all hover:border-transparent hover:bg-purple-600 hover:text-white"
+              >
+                <Facebook size={20} />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/technemasolutions/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-gray-300 transition-all hover:border-transparent hover:bg-purple-600 hover:text-white"
+              >
+                <Linkedin size={20} />
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4 className="mb-5 text-sm font-semibold text-gray-500">
+              TAUTAN
+            </h4>
+            <div className="flex flex-col gap-3">
+              {DATA_FOOTER.usefull_link.map((item, index) => (
+                <Link
+                  key={index}
+                  to={item.href}
+                  className="font-normal transition-all hover:text-purple-600"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h4 className="mb-5 text-sm font-semibold text-gray-500">
+              Produk
+            </h4>
+            <div className="flex flex-col gap-3">
+              {DATA_FOOTER.our_service.map((item, index) => (
+                <Link
+                  key={index}
+                  to={item.href}
+                  className="font-normal transition-all hover:text-purple-600"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h4 className="mb-5 text-sm font-semibold text-gray-500">
+              KONTAK
+            </h4>
+            <div className="flex flex-col gap-3">
+              <div className="flex gap-3">
+                <div className="text-gray-500">
+                  <Pin size={20} />
+                </div>
+                <div>
+                  <p className="text-gray-500">Alamat</p>
+                  <p>Niaga 1, No.08, Lantai 2, RT.005, Berau, KALTIM</p>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <div className="text-gray-500">
+                  <Phone size={20} />
+                </div>
+                <div>
+                  <p className="text-gray-500">Nomer HP</p>
+                  <a href="tel:+6285246911805">+62 852 4691 1805</a>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <div className="text-gray-500">
+                  <Mail size={20} />
+                </div>
+                <div>
+                  <p className="text-gray-500">E-mail</p>
+                  <a href="mailto:contact@technemasolutions.co.id">
+                    contact@technemasolutions.co.id
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr className="my-12" />
+        <p className="text-center text-gray-600">
+          © Copyright 2025, All Rights Reserved by Technema Solutions
+        </p>
+        <div className="flex justify-center gap-3 font-bold pt-4">
+          <Link
+            to="https://technemasolutions.co.id/id/syarat-ketentuan"
+            className="text-center text-purple-600 transition-all hover:text-purple-500"
           >
-            <Phone className="mr-2 h-5 w-5" />
-            Hubungi via WhatsApp
-          </Button>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-12">
-          <div>
-            <h3 className="font-poppins font-semibold mb-4">Produk</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#features" className="hover:text-primary transition-colors">
-                  Fitur
-                </a>
-              </li>
-              <li>
-                <a href="#pricing" className="hover:text-primary transition-colors">
-                  Harga
-                </a>
-              </li>
-              <li>
-                <a href="#demo" className="hover:text-primary transition-colors">
-                  Demo
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-poppins font-semibold mb-4">Perusahaan</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#about" className="hover:text-primary transition-colors">
-                  Tentang Kami
-                </a>
-              </li>
-              <li>
-                <a href="#blog" className="hover:text-primary transition-colors">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#careers" className="hover:text-primary transition-colors">
-                  Karir
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-poppins font-semibold mb-4">Support</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#help" className="hover:text-primary transition-colors">
-                  Bantuan
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-primary transition-colors">
-                  Kontak
-                </a>
-              </li>
-              <li>
-                <a href="#status" className="hover:text-primary transition-colors">
-                  Status
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-poppins font-semibold mb-4">Legal</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#privacy" className="hover:text-primary transition-colors">
-                  Privasi
-                </a>
-              </li>
-              <li>
-                <a href="#terms" className="hover:text-primary transition-colors">
-                  Syarat
-                </a>
-              </li>
-              <li>
-                <a href="#security" className="hover:text-primary transition-colors">
-                  Keamanan
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="text-center text-gray-400 border-t border-gray-800 pt-8">
-          <p>© 2024 Risto POS. All rights reserved.</p>
+            Term and Conditions
+          </Link>{" "}
+          |{" "}
+          <Link
+            to="https://technemasolutions.co.id/id/kebijakan-privasi"
+            className="text-center text-purple-600 transition-all hover:text-purple-500"
+          >
+            Privacy Policy
+          </Link>
         </div>
       </div>
     </footer>

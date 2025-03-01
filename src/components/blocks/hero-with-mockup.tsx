@@ -11,11 +11,14 @@ interface HeroWithMockupProps {
   primaryCta?: {
     text: string;
     href: string;
+    icon?: React.ReactNode;
+    className?: string; // Tambahkan ini
   };
   secondaryCta?: {
     text: string;
     href: string;
     icon?: React.ReactNode;
+    className?: string; // Tambahkan ini
   };
   mockupImage: {
     src: string;
@@ -87,19 +90,25 @@ export function HeroWithMockup({
                 "bg-gradient-to-b from-primary to-primary/90 dark:from-primary/90 dark:to-primary/80",
                 "hover:from-primary/95 hover:to-primary/85 dark:hover:from-primary/80 dark:hover:to-primary/70",
                 "text-white shadow-lg",
-                "transition-all duration-300"
+                "transition-all duration-300",
+                primaryCta?.className // Terapkan className dari props
               )}
             >
-              <a href={primaryCta.href}>{primaryCta.text}</a>
+              <a href={primaryCta.href}>
+                {primaryCta.icon}
+                {primaryCta.text}
+              </a>
             </Button>
 
+            {/* Secondary CTA */}
             <Button
               asChild
               size="lg"
               variant="ghost"
               className={cn(
                 "text-foreground/80 dark:text-foreground/70",
-                "transition-all duration-300"
+                "transition-all duration-300",
+                secondaryCta?.className // Terapkan className dari props
               )}
             >
               <a href={secondaryCta.href}>
